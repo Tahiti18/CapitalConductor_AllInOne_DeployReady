@@ -1,0 +1,12 @@
+:root{--cc-turq:#00AEC7;--cc-deep:#0B1220;--cc-light:#F6F8FF}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--cc-light);color:var(--cc-deep);font:16px/1.5 system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial}
+.container{max-width:1100px;margin:0 auto;padding:28px 20px}h1{font-size:40px;margin:0 0 8px}h2{font-size:28px;margin:18px 0 8px}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#e5fbff;color:#056473;font-weight:700;font-size:12px;margin-left:6px}
+.card{background:#fff;border:1px solid #E6EAF5;border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(10,22,70,.04)}
+.btn{display:inline-block;padding:12px 16px;border-radius:10px;background:linear-gradient(135deg,#00AEC7,#0BBDD3);color:#fff;text-decoration:none;font-weight:700}
+.nav{display:flex;gap:14px;align-items:center;margin:10px 0 24px}
+.nav a{color:#0B1220;text-decoration:none;font-weight:600}
+.footer{margin:28px 0 10px;color:#6b7aa7;font-size:13px}
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:30px;background:radial-gradient(1200px 500px at 10% -20%, #eef3ff, transparent),radial-gradient(900px 500px at 110% 10%, #f7f0ff, transparent);border:1px solid #E6EAF5;border-radius:16px;padding:28px 24px}
+.hero h2{font-size:34px;line-height:1.15;margin:0 0 10px} .hero p{margin:0 0 14px}
+input{padding:10px;border-radius:8px;border:1px solid #CBD3EA}
