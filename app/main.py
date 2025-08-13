@@ -1,13 +1,18 @@
 from fastapi import FastAPI, HTTPException, Body
-from fastapi.middleware.cors import CORSMiddleware
-from .config import settings
-from .routers import analytics, deck
+import os, time
 
-app = FastAPI(title="CapitalConductor API", version="1.0.0")
-app.add_middleware(CORSMiddleware, allow_origins=settings.CORS_ORIGINS, allow_methods=["*"], allow_headers=["*"])
+app = FastAPI(title="CapitalConductor API (Override)")
 
 @app.get("/health")
-def health(): return {"ok": True, "service": "CapitalConductor API"}
+def health():
+    return {"ok": True, "service": "cc-api", "ts": int(time.time())}
 
-app.include_router(deck.router, prefix="/deck", tags=["deck"])
-app.include_router(analytics.router, prefix="/analytics", tags=["analytics"])
+@app.post("/deck/unlock")
+def unlock(payload: dict = Body(...)):
+    if payload.get("password") != os.getenv("LIVE_DECK_PASSWORD", "Conductor2025"):
+        raise HTTPException(401, "Invalid password")
+    return {"ok": True}
+
+@app.post("/analytics/track")
+def track(event: dict = Body(...)):
+    return {"ok": True, "received": event}
